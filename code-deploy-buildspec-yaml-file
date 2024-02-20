@@ -1,0 +1,21 @@
+version: 0.2
+
+env:
+  parameter-store:
+    DOCKER_USERNAME: Docker_UserName
+    DOCKER_PASSWORD: Docker_Password
+    DOCKER_URL: Docker_registry
+
+phases:
+  build:
+    commands:
+      - echo Logging in to Docker Hub...
+      - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+      - echo Building Docker image...
+      - docker build -t ahmedbhai/hello-world-app:latest .
+      - echo Pushing Docker image to Docker Hub...
+      - docker push ahmedbhai/hello-world-app:latest
+
+artifacts:
+  files:
+    - '**/*'
