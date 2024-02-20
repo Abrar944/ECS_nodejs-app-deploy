@@ -8,6 +8,6 @@ echo "Docker image pulled successfully."
 
 # Run the Docker image as a container
 echo "Running Docker container..."
-docker run -d -p 5000:3000 ahmedbhai/hello-world-app
+docker run -d -p 3000:3000 ahmedbhai/hello-world-app
 echo "Docker container is running."
 
